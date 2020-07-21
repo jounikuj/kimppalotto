@@ -11,7 +11,7 @@ import yfinance
 def main(args):
     
     # Import data.
-    df = get_data()
+    df = get_data(args)
     
     # ... and plot it.
     plot(df, args.dpi, args.output)
@@ -19,7 +19,7 @@ def main(args):
     
     sys.exit()
 
-def get_lottery_data():
+def get_lottery_data(args):
     """
     Function imports the Excel file located in the data/ folder and
     matches it with OMXH25 stock market data
@@ -32,7 +32,7 @@ def get_lottery_data():
             
     # Import Excel file as pd.DataFrame.
     print("Retrieving lottery data...")
-    df = pandas.read_excel("data/data.xlsx", parse_dates=True)
+    df = pandas.read_excel(args.input, parse_dates=True)
             
     # Return pd.DataFrame.
     return df
@@ -75,7 +75,7 @@ def get_omxh25_data(start_date):
     # Return pd.DataFrame.
     return df
     
-def get_data():
+def get_data(args):
     """
     Merges lottery data and OMXH25 stock market index data. Returns merged
     data as pandas DataFrame object.
@@ -87,7 +87,7 @@ def get_data():
     """
             
     # Import lottery data.
-    lottery_df = get_lottery_data()
+    lottery_df = get_lottery_data(args)
             
     # Import OMXH25 stock market data.
     omxh25_df = get_omxh25_data(lottery_df["date"].min())
@@ -265,6 +265,8 @@ if __name__ == "__main__":
     # Define command line arguments.    
     parser.add_argument("-dpi", dest="dpi", type=int, default=300,
                         help="Image DPI, default 300 DPI")
+    parser.add_argument("-i", dest="input", type=str, default="data/data.xlsx",
+                        help="Name of input Excel file")
     parser.add_argument("-o", dest="output", type=str, default="kimppalotto.png",
                         help="Name of output image file")
     

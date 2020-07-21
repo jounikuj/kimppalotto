@@ -25,5 +25,6 @@ usage: kimppalotto.py [-h] [-dpi DPI] [-o OUTPUT]
 optional arguments:
    -h, --help   show this help message and exit
    -dpi DPI     Image DPI, default 300 DPI
+   -i INPUT     Name of input Excel file, default 'data/data.xlsx'
    -o OUTPUT    Name of output image file, default 'kimppalotto.png'
 ```
