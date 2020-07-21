@@ -1,0 +1,6 @@
+# This directory is reserved for input data, so
+# untrack all files within this directory.
+*
+
+# ...except this file, of course.
+!.gitignore
