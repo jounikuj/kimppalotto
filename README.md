@@ -28,3 +28,13 @@ optional arguments:
    -i INPUT     Name of input Excel file, default 'data/data.xlsx'
    -o OUTPUT    Name of output image file, default 'kimppalotto.png'
 ```
+
+### Skriptin tuloste
+
+Yllä mainittu esimerkkisyöte löytyy kansiosta `example/example.xlsx`, jonka avulla voimme testata skriptin toimintaa. 
+
+```
+> python kimppalotto.py -i example/example.xlsx -o example/example.png
+```
+
+![Example](example/example.png)
